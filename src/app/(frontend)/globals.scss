@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  // Dimensions
+  $dot-size: 1px;
+  $dot-space: 22px;
+
+  html {
+    $bg-color: hsl(10, 10%, 100%);
+    $dot-color: hsl(256, 33%, 85%);
+ 
+    background:
+         linear-gradient(90deg, $bg-color ($dot-space - $dot-size), transparent 1%) center,
+         linear-gradient($bg-color ($dot-space - $dot-size), transparent 1%) center, $dot-color;
+    background-size: $dot-space $dot-space;
+    font-family: Neue, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Hiragino Sans, Hiragino Kaku Gothic ProN, BIZ UDPGothic, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",  Meiryo, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    transition: all .2s;
+    font-family: Neue, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Hiragino Sans, Hiragino Kaku Gothic ProN, BIZ UDPGothic, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",  Meiryo, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+
+  html[data-theme='dark'] {
+    $bg-color: hsl(250, 33%, 10%);
+    $dot-color: hsl(256, 33%, 30%);
+
+    background:
+        linear-gradient(90deg, $bg-color ($dot-space - $dot-size), transparent 1%) center,
+        linear-gradient($bg-color ($dot-space - $dot-size), transparent 1%) center, $dot-color;
+    background-size: $dot-space $dot-space;
+    transition: all .2s;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: unset;
+    font-weight: unset;
+  }
+
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 240 5% 96%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 6% 80%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.2rem;
+
+    --success: 196 52% 74%;
+    --warning: 34 89% 85%;
+    --error: 10 100% 86%;
+  }
+
+  [data-theme='dark'] {
+    --background: 0 0% 0%;
+    --foreground: 210 40% 98%;
+
+    --card: 0 0% 4%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0, 0%, 15%, 0.8;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+
+    --success: 196 100% 14%;
+    --warning: 34 51% 25%;
+    --error: 10 39% 43%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply text-foreground min-h-[100vh] flex flex-col;
+  }
+}
+
+@layer base {
+  .richtext {
+    @apply text-lg leading-relaxed;
+
+    h1 {
+      @apply flex mt-8 mb-4 text-4xl leading-snug font-bold border-b pl-1 pb-2 border-gray-400 dark:text-light-50 dark:border-portgore-200;
+    }
+    
+    h2 {
+      @apply flex mt-4 mb-4 text-2xl leading-snug font-bold dark:text-light-100;
+    }
+    
+    h3 {
+      @apply flex mt-2 mb-4 text-xl leading-snug dark:text-light-100;
+    }
+  
+    p {
+      @apply mb-4 text-base tracking-wide leading-8 md:leading-7 dark:text-light-200;
+    }
+
+    ul {
+      @apply mb-4 list-disc list-inside dark:text-light-50;
+    }
+
+    ol {
+      @apply mb-4 list-decimal list-inside dark:text-light-50;
+    }
+
+    li::marker {
+      @apply text-gray-500 dark:text-light-800
+  }
+
+    hr {
+      @apply my-12 border-gray-300 dark:border-portgore-600;
+    }
+
+    table {
+      @apply items-center bg-transparent border-collapse my-4 table-auto;
+    }
+
+    tr {
+      // @apply group;
+    }
+
+    th {
+      @apply px-6 bg-gray-100 text-gray-700 dark:bg-portgore-700 dark:text-light-300 dark:border-portgore-500 align-middle border border-solid border-gray-200 py-3 text-sm uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left;
+    }
+
+    td {
+      @apply border-t-0 bg-[#fcfcfd] group-hover:bg-[#f7f7f9] dark:bg-portgore-600 dark:text-light-100 dark:border-portgore-400 dark:group-hover:bg-portgore-500 border-b px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4;
+    }
+
+    blockquote {
+      @apply pl-3 p-2 mx-2 my-2 bg-gray-100 mb-4 border-l-4 border-gray-400 rounded-r-lg dark:bg-portgore-800 dark:border-portgore-500;
+    }
+    
+    :not(pre) > code {
+      @apply text-pink-500 mx-1 dark:border-gray-700 dark:text-pink-400 break-all
+    }
+    :not(pre) > code:before {
+        content: "`";
+    }
+    :not(pre) > code:after {
+        content: "`";
+    }
+    
+    blockquote > p {
+        @apply mb-0
+    }
+  }
+}
+
+html {
+  opacity: 0;
+}
+
+html[data-theme='dark'],
+html[data-theme='light'] {
+  opacity: initial;
+}
