@@ -6,15 +6,19 @@ export const Code: Block = {
   fields: [
     {
       name: 'language',
+      label: {
+        en: 'Language',
+        ja: '言語',
+      },
       type: 'select',
       defaultValue: 'typescript',
       options: [
         {
-          label: 'Typescript',
+          label: 'TypeScript',
           value: 'typescript',
         },
         {
-          label: 'Javascript',
+          label: 'JavaScript',
           value: 'javascript',
         },
         {
@@ -22,6 +26,14 @@ export const Code: Block = {
           value: 'css',
         },
       ],
+    },
+    {
+      name: 'filename',
+      label: {
+        en: 'Filename',
+        ja: 'ファイル名',
+      },
+      type: 'text'
     },
     {
       name: 'code',

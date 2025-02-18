@@ -122,6 +122,11 @@
 }
 
 @layer base {
+  .content {
+    --tw-bg-opacity: 1;
+    background-color: rgb(18 17 32/var(--tw-bg-opacity));
+  }
+
   .richtext {
     @apply text-lg leading-relaxed;
 
@@ -178,17 +183,26 @@
     }
     
     :not(pre) > code {
-      @apply text-pink-500 mx-1 dark:border-gray-700 dark:text-pink-400 break-all
+      @apply text-pink-500 mx-1 dark:border-gray-700 dark:text-pink-400 break-all;
     }
     :not(pre) > code:before {
-        content: "`";
+      content: "`";
     }
     :not(pre) > code:after {
-        content: "`";
+      content: "`";
     }
     
     blockquote > p {
-        @apply mb-0
+      @apply mb-0;
+    }
+
+    pre {
+      font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+    }
+
+    .code-filename {
+      font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+      @apply inline-block pt-2 px-4 bg-[#011627] text-white;
     }
   }
 }

@@ -1,6 +1,8 @@
 import tailwindcssAnimate from 'tailwindcss-animate'
 import typography from '@tailwindcss/typography'
 
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 /** @type {import('tailwindcss').Config} */
 const config = {
   content: [
@@ -10,7 +12,10 @@ const config = {
     './src/**/*.{ts,tsx}',
   ],
   darkMode: ['selector', '[data-theme="dark"]'],
-  plugins: [tailwindcssAnimate, typography],
+  plugins: [
+    tailwindcssAnimate,
+    typography,
+  ],
   prefix: '',
   safelist: [
     'lg:col-span-4',
@@ -27,6 +32,12 @@ const config = {
     'bg-warning/30',
   ],
   theme: {
+    screens: {
+			xs: "400px",
+			// => @media (min-width: 400px) { ... }
+
+			...defaultTheme.screens, // This has to be here to apply smaller breakpoints
+		},
     container: {
       center: true,
       padding: {

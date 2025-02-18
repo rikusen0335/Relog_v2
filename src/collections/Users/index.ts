@@ -25,6 +25,9 @@ export const Users: CollectionConfig = {
     defaultColumns: ['icon', 'name', 'email'],
     useAsTitle: 'name',
   },
+  upload: {
+    adminThumbnail: 'small',
+  },
   auth: true,
   fields: [
     {

@@ -54,11 +54,10 @@ export const MediaBlock: React.FC<Props> = (props) => {
           />
         </Zoom>
       )}
-      <p>dwadawdwad</p>
       {caption && (
         <div
           className={cn(
-            'mt-6',
+            'mt-3',
             {
               container: !disableInnerContainer,
             },
