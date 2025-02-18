@@ -11,10 +11,13 @@ export const HomeNav = () => {
 				</h1>
 			</Link>
 			<div className="ml-auto" />
-			<Link href="/works" className="mt-5 text-xl font-bold text-center hover:underline dark:text-light-300">
+			<Link href="/posts" className="mt-5 text-xl font-bold text-center hover:underline dark:text-light-300">
+					Posts
+			</Link>
+			<Link href="/works" className="mt-5 text-xl font-bold text-center hover:underline dark:text-light-300 lg:ml-8">
 					Works
 			</Link>
-			<h4 className="mt-5 text-lg text-center lg:text-left lg:pl-8 dark:text-light-300">
+			<h4 className="mt-5 text-lg text-center lg:text-left lg:ml-8 dark:text-light-300">
 				An extremely garbage blog for notes.
 			</h4>
   	</section>

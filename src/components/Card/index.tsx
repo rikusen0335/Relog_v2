@@ -7,6 +7,7 @@ import React, { Fragment } from 'react'
 import type { Post } from '@/payload-types'
 
 import { Media } from '@/components/Media'
+import { CategoryBadge } from "@/components/CategoryBadge"
 
 export type CardPostData = Pick<Post, 'slug' | 'categories' | 'meta' | 'title' | 'publishedAt' | 'populatedAuthors'>
 
@@ -45,7 +46,7 @@ export const Card: React.FC<{
         </div>
         <div className="p-4">
           {showCategories && hasCategories && (
-            <div className="uppercase text-sm mb-4">
+            <div className="text-sm mb-2">
               {showCategories && hasCategories && (
                 <div>
                   {categories?.map((category, index) => {
@@ -58,7 +59,7 @@ export const Card: React.FC<{
 
                       return (
                         <Fragment key={index}>
-                          {categoryTitle}
+                          <CategoryBadge name={categoryTitle} />
                           {!isLast && <Fragment>, &nbsp;</Fragment>}
                         </Fragment>
                       )
@@ -72,7 +73,7 @@ export const Card: React.FC<{
           )}
           {titleToUse && (
             <div className="prose">
-              <h3>
+              <h3 className="text-lg">
                 {titleToUse}
               </h3>
             </div>

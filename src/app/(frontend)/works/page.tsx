@@ -1,6 +1,6 @@
 import type { Metadata } from 'next/types'
 
-import { CollectionArchive } from '@/components/CollectionArchive'
+import { WorkCollectionArchive } from '@/components/WorkCollectionArchive'
 import { PageRange } from '@/components/PageRange'
 import { Pagination } from '@/components/Pagination'
 import configPromise from '@payload-config'
@@ -14,42 +14,42 @@ export const revalidate = 600
 export default async function Page() {
   const payload = await getPayload({ config: configPromise })
 
-  const posts = await payload.find({
-    collection: 'posts',
+  const works = await payload.find({
+    collection: 'works',
     depth: 1,
     limit: 12,
     overrideAccess: false,
     select: {
       title: true,
+      subtitle: true,
       slug: true,
-      categories: true,
       meta: true,
+      usedTechs: true,
+      description: true,
+      createdAt: true,
+      publishedAt: true,
+      updatedAt: true,
     },
   })
 
   return (
     <div className="pt-24 pb-24">
       <PageClient />
-      <div className="container mb-16">
-        <div className="prose dark:prose-invert max-w-none">
-          <h1>Posts</h1>
-        </div>
-      </div>
 
       <div className="container mb-8">
         <PageRange
-          collection="posts"
-          currentPage={posts.page}
+          collection="works"
+          currentPage={works.page}
           limit={12}
-          totalDocs={posts.totalDocs}
+          totalDocs={works.totalDocs}
         />
       </div>
 
-      <CollectionArchive posts={posts.docs} />
+      <WorkCollectionArchive works={works.docs} />
 
       <div className="container">
-        {posts.totalPages > 1 && posts.page && (
-          <Pagination page={posts.page} totalPages={posts.totalPages} />
+        {works.totalPages > 1 && works.page && (
+          <Pagination page={works.page} totalPages={works.totalPages} />
         )}
       </div>
     </div>

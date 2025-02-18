@@ -10,6 +10,10 @@ const defaultCollectionLabels = {
     plural: 'Posts',
     singular: 'Post',
   },
+  works: {
+    plural: 'Works',
+    singular: 'Work',
+  },
 }
 
 export const PageRange: React.FC<{
@@ -46,7 +50,7 @@ export const PageRange: React.FC<{
 
   return (
     <div className={[className, 'font-semibold'].filter(Boolean).join(' ')}>
-      {(typeof totalDocs === 'undefined' || totalDocs === 0) && 'Search produced no results.'}
+      {(typeof totalDocs === 'undefined' || totalDocs === 0) && '検索結果がありません。'}
       {typeof totalDocs !== 'undefined' &&
         totalDocs > 0 &&
         `${totalDocs}件のうち ${indexStart}${indexStart > 0 ? ` - ${indexEnd}` : ''}件を表示中`}

@@ -5,6 +5,7 @@ import type { Post } from '@/payload-types'
 
 import { Media } from '@/components/Media'
 import { formatAuthors } from '@/utilities/formatAuthors'
+import { CategoryBadge } from "@/components/CategoryBadge"
 
 export const PostHero: React.FC<{
   post: Post
@@ -22,7 +23,7 @@ export const PostHero: React.FC<{
     <div className="container">
         <div className="container z-10 relative text-white pb-8">
           <div className="">
-            <div className="uppercase text-sm mb-6">
+            <div className="text-sm mb-3">
               {categories?.map((category, index) => {
                 if (typeof category === 'object' && category !== null) {
                   const { title: categoryTitle } = category
@@ -33,7 +34,7 @@ export const PostHero: React.FC<{
 
                   return (
                     <React.Fragment key={index}>
-                      #{titleToUse}
+                      <CategoryBadge name={titleToUse} />
                       {!isLast && <React.Fragment>, &nbsp;</React.Fragment>}
                     </React.Fragment>
                   )

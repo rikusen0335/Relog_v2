@@ -5,7 +5,7 @@ import { getPayload } from 'payload'
 import React from 'react'
 import RichText from '@/components/RichText'
 
-import { CollectionArchive } from '@/components/CollectionArchive'
+import { CollectionArchive } from '@/components/PostCollectionArchive'
 
 export const ArchiveBlock: React.FC<
   ArchiveBlockProps & {
